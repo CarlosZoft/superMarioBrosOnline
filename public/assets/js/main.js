@@ -7,10 +7,42 @@ class Game{
     }
 
     main(){
-        this.play_song("default.mp3");
+        // all images pixelated
+        setInterval(() => {
+            let allImgs = document.querySelectorAll('img');
+            Array.from(allImgs).map(img => {
+                img.style.imageRendering = 'pixelated'
+            });
+
+        }, 3000)
+
+        // set map size
+        let scene = document.querySelector('.cenario')
+        
+        this.play_music("default.ogg");
+
+        this.player_songs();
+        
     }
 
-    play_song(src){
+    // set player songs
+    player_songs() {
+        document.onkeydown = (e) => {
+
+            // salto
+            if(["Space", "ArrowUp", "KeyW"].indexOf(e.code) > -1) this.play_song('smb_jump-small.ogg')
+            
+        };
+    }
+
+    play_song(src) {
+        let sound = document.createElement('audio');
+        sound.src = `./${this.assets}/soundtrack/${src}`
+        sound.autoplay = true;
+        sound.play()
+    }
+
+    play_music(src){
         let sound = document.createElement('audio');
         sound.src = `./${this.assets}/soundtrack/${src}`
         sound.autoplay = true;

@@ -37,6 +37,7 @@ button#audio{
 .back{
     position: absolute;
     bottom:10%;
+    left: 0;
     image-rendering: pixelated;
 }
 
@@ -87,6 +88,7 @@ credits:hover{
     background-repeat: repeat-x;
     background-position-y: 58px;
     bottom: 0;
+    left: 0;
     height: 11vh;
     width: 100%;
     image-rendering: pixelated;
